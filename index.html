@@ -51,8 +51,9 @@
 
 <h1><span class="accent">▲</span> nostr-client</h1>
 <p class="lede">A nostr client built as <strong>independent, swappable parts</strong>.
-Vanilla JavaScript, no build step, no bundler, no framework. One repo, one thing.
-Everything served from GitHub Pages. AGPL.</p>
+Vanilla JavaScript, no build step, no bundler, no framework. One repo, one thing —
+eleven clients, a built-in bitcoin wallet, and a theme system, all from the same
+components. Everything served from GitHub Pages. AGPL.</p>
 
 <h2>Eleven clients, zero builds</h2>
 <p>Composed clients are just pages that arrange parts — so they come in grades (new here? <a href="/starter/"><strong>join nostr in 60 seconds</strong></a>):</p>
@@ -108,6 +109,9 @@ custom properties.</p>
     preact/htm, or anything else.</li>
   <li><strong>Swap anything.</strong> Every part defaults to the shared implementations but accepts
     replacements: another signer, another pool, another login. Change one URL, keep the rest.</li>
+  <li><strong>One key: identity + money.</strong> A nostr pubkey is a BIP-340 x-only key — so it's
+    also a <a href="/purse/">taproot bitcoin address</a>. Anyone can tip your npub; your nsec spends
+    it. No zap servers, no custodians, testnet-first.</li>
 </ul>
 
 <h2>The parts</h2>
@@ -129,8 +133,8 @@ custom properties.</p>
       <td>event id + schnorr verification; wraps any pool</td>
       <td class="demo"><a href="/verify/">forgery test</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/theme">theme</a></td>
-      <td>design tokens — one CSS file, reskin anything</td>
-      <td class="demo"><a href="/theme/">tokens</a></td></tr>
+      <td>design tokens + ten named themes — reskin every client</td>
+      <td class="demo"><a href="/theme/">theme gallery</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/feed">feed</a></td>
       <td>&lt;nostr-feed&gt; — live notes, batched profile resolution</td>
       <td class="demo"><a href="/feed/">global feed</a></td></tr>
