@@ -6,7 +6,7 @@
 <title>nostr-client — a modular, composable, no-build nostr client</title>
 <meta name="description" content="A nostr client built as independent, swappable, no-build vanilla JS parts. One repo, one thing.">
 <style>
-  :root { color-scheme: light; --accent: #8e30eb; --ink: #1d1d21; --soft: #6b6b74;
+  :root { color-scheme: light; --accent: #7c3aed; --ink: #1d1d21; --soft: #6b6b74;
     --line: #e6e4ea; --wash: #faf9fc; }
   * { box-sizing: border-box; }
   body { font-family: system-ui, sans-serif; color: var(--ink); background: #fff;
@@ -46,16 +46,26 @@
 Vanilla JavaScript, no build step, no bundler, no framework. One repo, one thing.
 Everything served from GitHub Pages. AGPL.</p>
 
+<h2>Two clients, zero builds</h2>
+<p>Composed clients are just pages that arrange parts — so they come in grades:</p>
+<table>
+  <tr><th>grade</th><th>client</th><th>character</th></tr>
+  <tr><td>minimal</td><td><a href="/zen/"><strong>zen</strong></a></td>
+      <td>read only — serif, moss, world &amp; circle, conversations. Nothing else.</td></tr>
+  <tr><td>daily</td><td><a href="/micro/"><strong>micro</strong></a></td>
+      <td>post, reply, react, follow, mentions, search, profile, relays</td></tr>
+</table>
+<p>Same components, different HTML files. zen's entire "fork" is two CSS
+custom properties.</p>
+
 <h2>It already works — this is live</h2>
 <div class="live">
   <div class="bar">
     <nostr-login></nostr-login>
-    <span>two web components from two repos, sharing one relay pool</span>
+    <span>independent components from separate repos, one shared relay pool</span>
   </div>
   <nostr-feed limit="8"></nostr-feed>
 </div>
-<p>A fuller composed client: <a href="https://nostr-client.github.io/micro/"><strong>micro</strong></a> —
-global + following feeds, composer, profile editor, in one buildless HTML file.</p>
 
 <h2>Principles</h2>
 <ul class="principles">
@@ -89,17 +99,53 @@ global + following feeds, composer, profile editor, in one buildless HTML file.<
   <tr><td><a href="https://github.com/nostr-client/did">did</a></td>
       <td>did:nostr identity documents, 3-tier resolution</td>
       <td class="demo"><a href="/did/">resolver</a></td></tr>
-  <tr><td><a href="https://github.com/nostr-client/profile-editor">profile-editor</a></td>
-      <td>&lt;nostr-profile-editor&gt; — edit kind 0, preserves unknown fields</td>
-      <td class="demo"><a href="/profile-editor/">editor</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/verify">verify</a></td>
+      <td>event id + schnorr verification; wraps any pool</td>
+      <td class="demo"><a href="/verify/">forgery test</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/theme">theme</a></td>
+      <td>design tokens — one CSS file, reskin anything</td>
+      <td class="demo"><a href="/theme/">tokens</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/feed">feed</a></td>
       <td>&lt;nostr-feed&gt; — live notes, batched profile resolution</td>
       <td class="demo"><a href="/feed/">global feed</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/note">note</a></td>
+      <td>&lt;nostr-note&gt; — one note card + shared safe rendering</td>
+      <td class="demo"><a href="/note/">note</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/thread">thread</a></td>
+      <td>&lt;nostr-thread&gt; — NIP-10 conversations, live reply tree</td>
+      <td class="demo"><a href="/thread/">thread</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/composer">composer</a></td>
       <td>&lt;nostr-composer&gt; — publish kind 1 with per-relay acks</td>
       <td class="demo"><a href="/composer/">composer</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/reactions">reactions</a></td>
+      <td>&lt;nostr-reactions&gt; — likes &amp; reposts, lazy counts</td>
+      <td class="demo"><a href="/reactions/">reactions</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/contacts">contacts</a></td>
+      <td>follow button + kind-3 list editor, preserves metadata</td>
+      <td class="demo"><a href="/contacts/">contacts</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/notifications">notifications</a></td>
+      <td>&lt;nostr-notifications&gt; — mentions/replies/reactions to you</td>
+      <td class="demo"><a href="/notifications/">notifications</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/profile">profile</a></td>
+      <td>&lt;nostr-profile&gt; — profile card for any pubkey</td>
+      <td class="demo"><a href="/profile/">profile page</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/profile-editor">profile-editor</a></td>
+      <td>&lt;nostr-profile-editor&gt; — edit kind 0, preserves unknown fields</td>
+      <td class="demo"><a href="/profile-editor/">editor</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/relay-manager">relay-manager</a></td>
+      <td>&lt;nostr-relay-manager&gt; — page relays + NIP-65 lists</td>
+      <td class="demo"><a href="/relay-manager/">relays</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/search">search</a></td>
+      <td>&lt;nostr-search&gt; — NIP-50 full-text search</td>
+      <td class="demo"><a href="/search/">search</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/nip46">nip46</a></td>
+      <td>remote signing via nsec bunker (experimental)</td>
+      <td class="demo"><a href="/nip46/">bunker</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/zen">zen</a></td>
+      <td>composed client, minimal grade — read only</td>
+      <td class="demo"><a href="/zen/">zen</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/micro">micro</a></td>
-      <td>a whole client, composed from the parts above</td>
+      <td>composed client, daily grade — the full loop</td>
       <td class="demo"><a href="/micro/">micro</a></td></tr>
 </table>
 

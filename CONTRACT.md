@@ -83,6 +83,23 @@ dependency without forking:
 </script>
 ```
 
+### Versioning
+
+Every repo tags releases (`v1`, `v2`, …). GitHub Pages serves the branch head
+(the "latest" channel); for **pinned** imports use the jsDelivr GitHub CDN,
+which serves any tag of the same files:
+
+```js
+// latest (moves with the repo):
+import { defaultPool } from 'https://nostr-client.github.io/pool/pool.js'
+// pinned (immutable):
+import { defaultPool } from 'https://cdn.jsdelivr.net/gh/nostr-client/pool@v1/pool.js'
+```
+
+Composed clients that want zero surprises pin every import; component repos
+importing siblings track latest so the ecosystem moves together. Breaking a
+contract interface requires a new major tag and a note in the README.
+
 Rules for a part to be a good citizen:
 
 - **one repo, one thing**, with a live demo `index.html` on gh-pages
