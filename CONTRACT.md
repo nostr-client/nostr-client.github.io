@@ -60,7 +60,10 @@ property.
 Components communicate outward with `CustomEvent`s, namespaced `nostr:*`,
 dispatched with `bubbles: true, composed: true` (and on `window` where global
 interest is expected): `nostr:login`, `nostr:logout`, `nostr:published`,
-`nostr:profile-saved`, …
+`nostr:profile-saved`, `nostr:note-click`, `nostr:profile-click`,
+`nostr:hashtag-click`, `nostr:contacts-changed`, `nostr:relays-changed`,
+`nostr:wallet-balance`, …  Clients route on the `*-click` events; components
+never navigate on their own.
 
 Data in `detail` uses the primitives: hex keys, raw nostr events.
 
