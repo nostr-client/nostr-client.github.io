@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><polygon points=%2750,12 90,88 10,88%27 fill=%27%237c3aed%27/></svg>">
 <title>nostr-client — a modular, composable, no-build nostr client</title>
 <meta name="description" content="A nostr client built as independent, swappable, no-build vanilla JS parts. One repo, one thing.">
 <style>
@@ -46,7 +47,7 @@
 Vanilla JavaScript, no build step, no bundler, no framework. One repo, one thing.
 Everything served from GitHub Pages. AGPL.</p>
 
-<h2>Two clients, zero builds</h2>
+<h2>Three clients, zero builds</h2>
 <p>Composed clients are just pages that arrange parts — so they come in grades:</p>
 <table>
   <tr><th>grade</th><th>client</th><th>character</th></tr>
@@ -54,6 +55,8 @@ Everything served from GitHub Pages. AGPL.</p>
       <td>read only — serif, moss, world &amp; circle, conversations. Nothing else.</td></tr>
   <tr><td>daily</td><td><a href="/micro/"><strong>micro</strong></a></td>
       <td>post, reply, react, follow, mentions, search, profile, relays</td></tr>
+  <tr><td>full</td><td><a href="/monty/"><strong>monty</strong></a></td>
+      <td>the full monty — relay explorer, in-app profiles, hashtags, on-chain tips</td></tr>
 </table>
 <p>Same components, different HTML files. zen's entire "fork" is two CSS
 custom properties.</p>
@@ -141,12 +144,21 @@ custom properties.</p>
   <tr><td><a href="https://github.com/nostr-client/nip46">nip46</a></td>
       <td>remote signing via nsec bunker (experimental)</td>
       <td class="demo"><a href="/nip46/">bunker</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/cache">cache</a></td>
+      <td>IndexedDB event cache — wraps any pool</td>
+      <td class="demo"><a href="/cache/">instant reload</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/tip">tip</a></td>
+      <td>&lt;nostr-tip&gt; — on-chain bitcoin tips, testnet-first</td>
+      <td class="demo"><a href="/tip/">₿ tip</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/zen">zen</a></td>
       <td>composed client, minimal grade — read only</td>
       <td class="demo"><a href="/zen/">zen</a></td></tr>
   <tr><td><a href="https://github.com/nostr-client/micro">micro</a></td>
-      <td>composed client, daily grade — the full loop</td>
+      <td>composed client, daily grade — the essentials</td>
       <td class="demo"><a href="/micro/">micro</a></td></tr>
+  <tr><td><a href="https://github.com/nostr-client/monty">monty</a></td>
+      <td>composed client, full grade — everything</td>
+      <td class="demo"><a href="/monty/">monty</a></td></tr>
 </table>
 
 <h2>Quick start</h2>
