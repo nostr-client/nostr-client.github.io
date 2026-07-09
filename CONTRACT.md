@@ -55,6 +55,19 @@ Swap globally by assigning `globalThis.__nostrClientPool` before components
 load, per-component via the `relays="wss://…"` attribute or the `.pool`
 property.
 
+The standard hardened composition — verified events
+([verify](https://github.com/nostr-client/verify)), local cache
+([cache](https://github.com/nostr-client/cache)), the user's saved relays
+([relay-manager](https://github.com/nostr-client/relay-manager)) — is
+packaged as one import by [setup](https://github.com/nostr-client/setup):
+
+```js
+await import('https://nostr-client.github.io/setup/setup.js')
+```
+
+It respects a pool the page already assigned; hand-compose when you want a
+different stack.
+
 ## 4. Events
 
 Components communicate outward with `CustomEvent`s, namespaced `nostr:*`,

@@ -9,6 +9,7 @@ served from GitHub Pages.
 - [CONTRACT.md](CONTRACT.md) — the five conventions that make the parts compose
 - [agent.did.json](agent.did.json) — this org's [did:nostr](https://did-nostr.com/) identity
 - [micro](https://nostr-client.github.io/micro/) — a whole client composed from the parts
+- [setup](https://github.com/nostr-client/setup) — the standard hardened pool (verify + cache + saved relays) as one import
 
 ## License
 
